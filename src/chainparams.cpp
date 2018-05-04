@@ -61,7 +61,7 @@ public:
         pchMessageStart[1] = 0x1b;
         pchMessageStart[2] = 0xc4;
         pchMessageStart[3] = 0xa4;
-        vAlertPubKey = ParseHex("04a983220ea7a38a7106385003fef77896538a382addcc389cc66f3c98751d9af423a097666767676259351a98a8aaa628a1fd644c3232678c5845384c744ff8d7");
+        vAlertPubKey = ParseHex("04a586220ea7a38a7106385003fef77896538a382addcc389cc66f3c98751d9af423a097666767676259351a98a8aaa628a1fd644c3232678c5845384c744ff8d7");
         nDefaultPort = 30127;
         nRPCPort = 30126;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
@@ -76,7 +76,7 @@ public:
 		//
 		//	vMerkleTree:  5f00f8f40b1fa90147e87663bdc021a8d39ac639a557b794eac52aa26ddefda8
 
-        const char* pszTimestamp = "2018 May Ree revival Team";
+        const char* pszTimestamp = "2018 May Ree revival Team 2.0";
         std::vector<CTxIn> vin;
         vin.resize(1);
         vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -93,7 +93,9 @@ public:
         genesis.nNonce   = 141350; 		
 
         hashGenesisBlock = genesis.GetHash();
-
+        // printf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        // printf("merkle = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+	// printf("Nonce = %s\n", genesis.nNonce.ToString().c_str());
         assert(hashGenesisBlock == uint256("0x0000153d1dea38532ed6798bc1bb0092b41d0b487faeafcace26ab8375e93475"));
         assert(genesis.hashMerkleRoot == uint256("0x5f00f8f40b1fa90147e87663bdc021a8d39ac639a557b794eac52aa26ddefda8"));
 
