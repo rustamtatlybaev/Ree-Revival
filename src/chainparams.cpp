@@ -57,13 +57,13 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0x1c;
-        pchMessageStart[1] = 0x4e;
-        pchMessageStart[2] = 0xb6;
-        pchMessageStart[3] = 0xc3;
+        pchMessageStart[0] = 0x3d;
+        pchMessageStart[1] = 0x1b;
+        pchMessageStart[2] = 0xc4;
+        pchMessageStart[3] = 0xa4;
         vAlertPubKey = ParseHex("04a983220ea7a38a7106385003fef77896538a382addcc389cc66f3c98751d9af423a097666767676259351a98a8aaa628a1fd644c3232678c5845384c744ff8d7");
-        nDefaultPort = 17127;
-        nRPCPort = 17126;
+        nDefaultPort = 30127;
+        nRPCPort = 30126;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -76,7 +76,7 @@ public:
 		//
 		//	vMerkleTree:  5f00f8f40b1fa90147e87663bdc021a8d39ac639a557b794eac52aa26ddefda8
 
-        const char* pszTimestamp = "20 Dec 2017 Bitcoin Lightning Release.";
+        const char* pszTimestamp = "2018 May Ree revival Team";
         std::vector<CTxIn> vin;
         vin.resize(1);
         vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
@@ -88,7 +88,7 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1513740600;
+        genesis.nTime    = 1525432369;
         genesis.nBits    = 520159231; 
         genesis.nNonce   = 141350; 		
 
@@ -98,17 +98,17 @@ public:
         assert(genesis.hashMerkleRoot == uint256("0x5f00f8f40b1fa90147e87663bdc021a8d39ac639a557b794eac52aa26ddefda8"));
 
         
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,25);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,85);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,153);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,60);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,58);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,112);
         base58Prefixes[STEALTH_ADDRESS] = std::vector<unsigned char>(1,40);
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vSeeds.push_back(CDNSSeedData("0",  "165.227.219.245"));
-        vSeeds.push_back(CDNSSeedData("1",  "159.89.38.145"));
-		vSeeds.push_back(CDNSSeedData("2", "159.89.47.190"));
-		vSeeds.push_back(CDNSSeedData("2",  "159.89.40.45"));
+        vSeeds.push_back(CDNSSeedData("n0", "23.95.214.48:30126"));
+        vSeeds.push_back(CDNSSeedData("n1", "23.95.214.48:40123"));
+        vSeeds.push_back(CDNSSeedData("n2", "107.172.205.232:30126));
+	    
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 
         nPoolMaxTransactions = 3;
