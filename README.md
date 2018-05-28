@@ -1,8 +1,8 @@
-<b>#Bitcoin Lightning Coin Specification</b>
+<b>#Ree Coin Specification</b>
 
-Coin Name : Bitcoin Lightning
+Coin Name : Ree
 
-Ticker : BLTG
+Ticker : REE
 
 Coin Type : POS 
 
@@ -12,7 +12,7 @@ Block Time : 90 Sec Approx
 
 Block Size : 3MB 
 
-Block Reward: 64 BLTG increasing to 80 at block 88900
+Block Reward: 64 REE increasing to 80 at block 88900
  
 Total Coins: 70,000,000
 
